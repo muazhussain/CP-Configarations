@@ -1,8 +1,10 @@
 {
  
- "target": "terminus_exec",
+ "target": "terminus_open",
 
  "cancel": "terminus_cancel_build",
+
+ "auto_close": false,
 
  "shell_cmd": "\"g++\" \"-std=c++17\" \"-fsanitize=address\" \"-fsanitize=undefined\" \"-D_GLIBCXX_DEBUG\" \"-Wshadow\" \"-Wextra\" \"-Wall\" \"-DLOCAL\" \"${file}\" -o \"${file_path}/${file_base_name}\"",
 
@@ -15,12 +17,21 @@
     "variants":
     [
         {
-            "name": "Run",
+            "name": "Build & Run",
             "shell_cmd": "\"g++\" \"-std=c++17\" \"-fsanitize=address\" \"-fsanitize=undefined\" \"-D_GLIBCXX_DEBUG\" \"-Wshadow\" \"-Wextra\" \"-Wall\" \"-DLOCAL\" \"${file}\" -o \"${file_path}/${file_base_name}\" && \"./${file_base_name}\""
         },
         {
-            "name": "Run-inp",
+            "name": "Build & Run-inp",
             "shell_cmd": "\"g++\" \"-std=c++17\" \"-fsanitize=address\" \"-fsanitize=undefined\" \"-D_GLIBCXX_DEBUG\" \"-Wshadow\" \"-Wextra\" \"-Wall\" \"-DLOCAL\" \"${file}\" -o \"${file_path}/${file_base_name}\" && \"./${file_base_name}\" < \"./inp\""
-        }
+        },
+        {
+            "name": "Run",
+            "shell_cmd": "\"./${file_base_name}\""
+        },
+        {
+            "name": "Run-inp",
+            "shell_cmd": "\"./${file_base_name}\" < \"./inp\""
+        },
+
     ]
 }
