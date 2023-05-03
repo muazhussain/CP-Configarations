@@ -22,7 +22,7 @@
         },
         {
             "name": "Build & Run-inp",
-            "shell_cmd": "\"g++\" \"-std=c++17\" \"-fsanitize=address\" \"-fsanitize=undefined\" \"-D_GLIBCXX_DEBUG\" \"-Wshadow\" \"-Wextra\" \"-Wall\" \"-DLOCAL\" \"${file}\" -o \"${file_path}/${file_base_name}\" && \"./${file_base_name}\" < \"./inp\""
+            "shell_cmd": "\"g++\" \"-std=c++17\" \"-fsanitize=address\" \"-fsanitize=undefined\" \"-D_GLIBCXX_DEBUG\" \"-Wshadow\" \"-Wextra\" \"-Wall\" \"-DLOCAL\" \"${file}\" -o \"${file_path}/${file_base_name}\" && \"timeout\" \"5s\" \"./${file_base_name}\" < \"./inp\""
         },
         {
             "name": "Run",
@@ -30,7 +30,7 @@
         },
         {
             "name": "Run-inp",
-            "shell_cmd": "\"./${file_base_name}\" < \"./inp\""
+            "shell_cmd": "\"timeout\" \"5s\" \"./${file_base_name}\" < \"./inp\""
         },
 
     ]
